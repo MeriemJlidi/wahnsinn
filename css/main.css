@@ -1,0 +1,862 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  line-height: 1.4;
+  overflow-x: hidden !important;
+}
+
+/* font */
+@font-face {
+  font-family: 'Avenir Next Medium';
+  src: url('fonts/930383e5-36a7-4f9b-ba93-91da56426238.eot?#iefix');
+  src: url('fonts/55e40b4b-6742-4cea-b87c-382b0c65d12d.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Next Demi';
+  src: url('fonts/47d79f32-82c5-4a74-9646-5150297aabc1.eot?#iefix');
+  src: url('fonts/750a20ec-9242-42a8-b3bd-c4dcec552196.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('fonts/9c8b7e5f-b3ca-435d-a197-b3dfeae277a1.ttf') format('truetype');
+}
+
+
+/* Colors */
+
+:root {
+  --wahnsinn: #00bdc4;
+  --wahnsinnhand: #3FB200;
+  --white: #fff;
+  --black: #000;
+  --telekom: #e00873;
+  --stroer: #ff4e00;
+  --damedic: #004EFF;
+}
+
+.wahnsinnsection{
+  fill: var(--wahnsinn);
+}
+.handwahnsinnsection{
+  fill: var(--wahnsinnhand) !important;
+  stroke: var(--wahnsinnhand) !important;
+}
+.telekomsection{
+  fill: var(--telekom);
+}
+
+.handtelekomsection{
+  fill: var(--telekom) !important;
+  stroke: var(--telekom) !important;
+}
+.stroersection{
+  fill: var(--stroer);
+}
+
+.handstroersection{
+  fill: var(--stroer) !important;
+  stroke: var(--stroer) !important;
+}
+
+.damedicsection{
+  fill: var(--damedic);
+}
+
+.handdamedicsection{
+  fill: var(--damedic) !important;
+  stroke: var(--damedic) !important;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+body{
+  overflow-x: hidden;
+  font-family: "Avenir Next", serif;
+}
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+p{
+  padding-left: 9px;
+}
+.logo{
+  position: fixed;
+  top: 30px;
+  right: 8%;
+  z-index: 5;
+  height: 60px;
+  width: 60px;
+ }
+.main-title {
+  width: 322px;
+  height: 336px;
+  font-family: "Avenir Next Demi", serif;
+  font-size: 70px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.86;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: #000000;
+  margin-top: 0px;
+  padding-top: 120px;
+  margin-bottom: 0;
+}
+.kase{
+  font-family: "Avenir Next", serif;
+  font-size: 30px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: left;
+  color: #00BDC4;
+  margin-bottom: 22px;
+  margin-top: 0;
+  padding-top: 23px;
+
+}
+
+.triangle{
+  background-image:url("../img/triangle.svg") ;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 375px;
+  width: 375px;
+}
+
+.btnCircle {
+  position: fixed;
+  right: 8%;
+  bottom: 92px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--white);
+  border-radius: 50%;
+  border: none;
+  z-index: 5;
+}
+.hand{
+  width: 65%;
+  height: 65%;
+}
+
+.middle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 73px;
+  height: 35px;
+  padding-bottom: 62px;
+}
+
+
+.DTelekom{
+  color: #E00873;
+  font-family: Avenir Next, serif;
+  font-size: 26px;
+  line-height: 1.08;
+  letter-spacing: -0.39px;
+}
+.TelekomText{
+  font-family: Avenir Next , serif;
+  font-size: 26px;
+  line-height: 1.08;
+  letter-spacing: -0.39px;
+}
+
+.mshop{
+  position: absolute;
+  left: -450px;
+  top: 1070px;
+  z-index:-5;
+}
+
+.RoundButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  border-color: transparent;
+  text-align: left;
+  margin-top: 230px;
+}
+
+.telekom{
+  background-color: var(--telekom);
+}
+
+.heavy{
+  font-family: "Avenir Next heavy", serif;
+  color: white;
+  font-size: 30px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.93;
+  letter-spacing: -0.9px;
+  padding-left: 19px;
+}
+
+.testimony{
+  margin-top: 130px;
+}
+.dt{
+  display: inline-block;
+  font-size: 30px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.45px;
+  text-align: left;
+  color: var(--telekom);
+  float: left;
+}
+
+.mark{
+  padding-top: 10px;
+  display: inline-block;
+  float: left;
+}
+
+.telekomspan {
+  font-family: "Avenir Next", serif;
+  display: inline-block;
+  padding-left: 37px;
+  float: left;
+}
+
+.hemmerling{
+  font-family: "Avenir Next", serif;
+  font-size: 30px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.45px;
+  text-align: left;
+  color: #000000;
+}
+
+.gluck{
+  width: 700px;
+  height: 700px;
+  background-color: var(--telekom);
+  border-radius: 50%;
+  position: relative;
+  top: 0;
+  left: -291px;
+}
+
+h4{
+  font-family: Avenir Next Demi, serif;
+}
+
+.gluck h4 {
+  width: 279px;
+  height: 262px;
+  font-size: 60px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  position: relative;
+  top: 170px;
+  left: 300px;
+  color: var(--white);
+  max-width: 280px;
+}
+
+.gluck p {
+  color: var(--white);
+  max-width: 340px;
+  position: absolute;
+  left: 291px;
+  top: 440px;
+  width: 357px;
+  height: 101px;
+  opacity: 0.8;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: left;
+}
+
+.stroer{
+  margin-top: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 121px;
+  height: 26px;
+  padding-bottom: 62px;
+}
+
+.stroercolor{
+  color: var(--stroer) ;
+}
+.stroerBg{
+  position: relative;
+  background-color: var(--stroer);
+  top: -150px;
+}
+
+.progress{
+  position: relative;
+  top: -200px;
+  left: -270px;
+  z-index: -5;
+}
+
+.stroer-testimony{
+  position: relative;
+  top:-200px;
+}
+
+.circle-stroer{
+  position: relative;
+  width: 516px;
+  height: 516px;
+  background-color: var(--stroer);
+  border-radius: 50%;
+  top: -150px;
+  left: -50px;
+}
+
+.circle-stroer h4 {
+  width: 279px;
+  height: 262px;
+  font-size: 60px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  position: relative;
+  top: 120px;
+  left: 60px;
+  color: var(--white);
+  max-width: 280px;
+}
+
+.circle-stroer p {
+  color: var(--white);
+  max-width: 340px;
+  position: absolute;
+  left: 51px;
+  top: 290px;
+  width: 357px;
+  height: 101px;
+  opacity: 0.8;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: left;
+}
+
+.damedic-color{
+  color: var(--damedic);
+}
+.damedic-font{
+  font-size: 30px;
+}
+.damedic{
+  width: 130px;
+  height: 130px;
+}
+
+.damedic-app{
+  position: relative;
+  left: -510px;
+  z-index: -5;
+}
+.damedicBg{
+  position: relative;
+  top:-910px;
+  margin-top: 0;
+  background-color: #18B6FF;
+}
+
+.damedicText{
+  color: #18B6FF;
+}
+.geiles-interface-design {
+  position: relative;
+  left: 9px;
+  top: 100px;
+  z-index: 999;
+  width: 243px;
+  height: 202px;
+  font-family: Avenir Next Demi, serif;
+  font-size: 60px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.Womit-Chefs-vor-ihren-Freunden-angeben-knnen {
+  position: relative;
+  top: 100px;
+  z-index: 999;
+  width: 357px;
+  height: 101px;
+  opacity: 0.8;
+  font-family: Avenir Next Demi, serif;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: left;
+  color: #ffffff;
+}
+.damedic-circle{
+  top: -500px;
+  position: relative;
+  left: -291px;
+  z-index: -5;
+}
+
+.team-headline h4 {
+  color: var(--black);
+  font-family: Avenir Next Demi, serif;
+  font-size: 60px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+}
+
+.team-headline p {
+  font-family: "Avenir Next Medium", serif;
+  color: var(--wahnsinn);
+  margin-bottom: 60px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.team-member {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: -9px;
+  margin-bottom: 60px;
+}
+
+.team-member img {
+  width: 25%;
+  height: 25%;
+}
+
+.team-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-links a {
+  padding-left: 9px;
+  font-family: Avenir Next Demi, serif;
+  font-size: 60px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.team-links span {
+  border-bottom: 4px solid var(--wahnsinn);
+}
+
+.wahn{
+  margin: 0px;
+  font-family: "Avenir Next Demi", serif;
+  font-size: 60px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #CCCCCC ;
+}
+
+.du-hast {
+  position: relative;
+  top: 300px;
+  left: 9px;
+  z-index: 999;
+  width: 257px;
+  height: 262px;
+  font-family: "Avenir Next Demi", serif;
+  font-size: 60px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.wir-suchen {
+  position: relative;
+  top: 250px;
+  left: 9px;
+  z-index: 999;
+  width: 357px;
+  height: 171px;
+  opacity: 0.8;
+  font-family: "Avenir Next Demi", serif;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.verstand{
+  z-index: -5;
+  position: relative;
+  top: -500px;
+}
+
+.tldr {
+  font-family: "Avenir Next Demi", serif;
+  font-size: 60px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #000000;
+}
+
+.bottom-text{
+  padding-left: 9px;
+  font-family: Avenir Next Medium, serif;
+  font-size: 24px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -0.36px;
+  text-align: left;
+}
+
+.adresse{
+  padding-left: 9px;
+}
+.email{
+  border-bottom: 2px solid var(--wahnsinn);
+}
+
+.bottom-text-span{
+  font-family:  "Avenir Next", serif;
+  font-size: 18px;
+  letter-spacing: -0.27px;
+}
+.space{
+  margin-top: 60px;
+}
+.dies-ist-das-ende {
+  margin-top: 391px;
+  padding-left: 9px;
+  font-family: "Avenir Next Demi", serif;
+  font-size: 60px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: var(--wahnsinn);
+}
+
+
+.also-jetzt{
+  font-size: 30px;
+}
+.sag-hallo {
+  margin-top: 81px;
+  margin-bottom: 111px;
+  font-family: Avenir Next Medium, serif;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  text-align: center;
+}
+
+@media screen and (max-width: 375px){
+  body{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
